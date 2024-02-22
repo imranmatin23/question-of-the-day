@@ -30,7 +30,7 @@ The frontend was created using the `create-react-app` CLI. See [frontend/README.
 
 ## Backend
 
-The backend was created using the `django-admin` CLI and the database was created using `PostgreSQL`. See [backend/README.md](backend/README.md) for further details about the backend.
+TODO
 
 ## Infrastructure
 

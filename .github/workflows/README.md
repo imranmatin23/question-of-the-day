@@ -10,10 +10,8 @@ A deployment to `prod` can also be started using the `make deploy-frontend` comm
 
 ## Backend
 
-The backend CI/CD is defined in the `.github/workflows/deploy_backend.yml`. Using the latest commit, 1/ Github Actions will build, tag, and push a new image to ECR, 2/ GitHub Actions will create a new version of the ECS Task Definition with the new image, and 3/ GitHub actions will deploy the image to ECS.
-
-A deployment to `prod` can also be started using the `make deploy-backend` command and it will use the local Docker image that was built most recently.
+TODO
 
 ## References
 
-[1] https://docs.github.com/en/actions
+[1] TODO
