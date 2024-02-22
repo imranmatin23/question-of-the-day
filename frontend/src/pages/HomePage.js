@@ -6,6 +6,8 @@ import React, { useState, useEffect } from "react";
 import API from "../Api";
 import "../styles/HomePage.css";
 
+const QOTD = "Who is your favorite musician of all time?";
+
 /*
  * This is an example of how Axios can be used to make an HTTP GET request to a backend webserver.
  */
@@ -44,7 +46,7 @@ function HomePage() {
       <div>
         <h2>Question of the Day</h2>
       </div>
-      <p>The backend is {backendHeath}.</p>
+      <p>{QOTD}</p>
     </div>
   );
 }
