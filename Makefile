@@ -19,3 +19,9 @@ logs-frontend: ## Prints the last 100 lines of the running Docker container
 	cd frontend; \
 	docker-compose logs frontend --tail 100;\
 	cd ../
+
+deploy-infra-frontend: ## Deploy backend infrastructure
+	cd infra/frontend; \
+	terraform plan -var-file prod.tfvars; \
+	terraform apply -auto-approve -input=false -var-file prod.tfvars; \
+	cd ../..
