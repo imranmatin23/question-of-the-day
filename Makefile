@@ -1,3 +1,10 @@
+# General AWS Variables
+REGION=us-west-2
+
+# Amplify Variables
+AMPLIFY_APP_ID=d17c6b0qnab6it
+BRANCH_NAME=main
+
 .PHONY: help
 
 help: ## Describes each Makefile target
@@ -19,6 +26,9 @@ logs-frontend: ## Prints the last 100 lines of the running Docker container
 	cd frontend; \
 	docker-compose logs frontend --tail 100;\
 	cd ../
+
+deploy-frontend: ## [Requires latest changes to be committed to REMOTE] Manually kick off Amplify Job to build, test, and deploy frontend
+	./scripts/deploy_frontend.sh "$(REGION)" "$(AMPLIFY_APP_ID)" "$(BRANCH_NAME)"
 
 deploy-infra-frontend: ## Deploy backend infrastructure
 	cd infra/frontend; \
