@@ -12,13 +12,20 @@ import {
   ListItemText,
   Typography,
   Stack,
+  FormControl,
+  FormLabel,
 } from "@mui/material";
 import "../styles/AdminPage.css";
+
+const ADMIN_PASSWORD = "Shandis";
 
 /*
  * This is an example of how Axios can be used to make an HTTP GET request to a backend webserver.
  */
 function AdminPage() {
+  const [authenticated, setAuthenticated] = useState(false);
+  const [password, setPassword] = useState("");
+
   function getQuestions() {
     var questions = [
       <ListItemButton>
@@ -34,32 +41,64 @@ function AdminPage() {
     return questions;
   }
 
+  function handleAuthenticateButtonPressed() {
+    if (password === ADMIN_PASSWORD) {
+      setAuthenticated(true);
+    }
+    return;
+  }
+
+  // Define the handler for TextField updates
+  function handleTextFieldChange(e) {
+    setPassword(e.target.value);
+  }
+
   /*
    * This return statement contains the HTML to be returned and rendered in the browser.
    */
-  return (
-    <div className="admin">
-      <div>
-        <h2>Admin Page</h2>
+  if (!authenticated) {
+    return (
+      <div className="admin">
+        <div>
+          <h2>Admin Page</h2>
+        </div>
+        <FormControl>
+          <TextField
+            label="Enter Password"
+            variant="outlined"
+            onChange={handleTextFieldChange}
+          />
+          <Button variant="contained" onClick={handleAuthenticateButtonPressed}>
+            Submit
+          </Button>
+        </FormControl>
       </div>
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
-          <Stack>
-            <TextField
-              id="outlined-basic"
-              placeholder="Insert new Question of the Day"
-              variant="outlined"
-            />
-            <Button variant="contained">Add Question</Button>
-          </Stack>
+    );
+  } else {
+    return (
+      <div className="admin">
+        <div>
+          <h2>Admin Page</h2>
+        </div>
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <Stack>
+              <TextField
+                id="outlined-basic"
+                placeholder="Insert new Question of the Day"
+                variant="outlined"
+              />
+              <Button variant="contained">Add Question</Button>
+            </Stack>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography variant="h4">Previous Questions of the Day</Typography>
+            <List>{getQuestions()}</List>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h4">Previous Questions of the Day</Typography>
-          <List>{getQuestions()}</List>
-        </Grid>
-      </Grid>
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default AdminPage;
