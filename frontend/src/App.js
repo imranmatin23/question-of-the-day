@@ -2,6 +2,7 @@
  * The App.js file represents your application or main component.
  */
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AdminPage from "./pages/AdminPage";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
@@ -17,6 +18,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/admin" element={<AdminPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
