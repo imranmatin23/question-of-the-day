@@ -40,13 +40,20 @@ The infrastructure was created using `docker`, `terraform` and `AWS`. See [infra
 
 The CI/CD pipeline was created using `GitHub Actions`. See [.github/workflows/README.md](.github/workflows/README.md) for further details about the CI/CD pipeline.
 
-## Enhancements
+## TODOs
 
-- Add test scaffolding (unit, integration, canary, etc.) for frontend/backend.
-- Read backend secrets from AWS Secrets Manager rather than from environment variables.
-- Convert frontend CI/CD to use Github Actions for build, test, deploy and convert frontend Amplify to manual hosting (i.e. no Git provider connecting and no build, test, deploy in Amplify)
-- Add dev/alpha/beta stages
-  - Secure dev/alpha/beta/prod stages
-  - Create infrastructure
-  - Add CI/CD stages using only Github Actions (NOTE: GitHub Actions has a Workflow Visualizer that is the equivalent of a Pipeline Visualizer).
-  - Update frontend/backend app code
+### Next Steps
+
+1. Implement Backend Infrastructure.
+2. Implement Admin Page Authentication.
+3. Implement Admin APIs to CRUDL QOTDs.
+4. Implement Admin Page on Frontend.
+
+### Frontend
+
+1. Forge Blog App React Code --> Example of Question Page.
+
+### Backend
+
+1. https://github.com/serverless/examples/tree/v3/aws-python-http-api-with-pynamodb
+2. https://aws.amazon.com/getting-started/hands-on/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/
